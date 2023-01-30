@@ -1,0 +1,83 @@
+:root{
+    --white:rgb(255, 255, 255);
+    --orange:rgb(251, 174, 67);
+    --purple:rgb(169, 64, 248);
+    --white_dimmed: rgba(255, 255, 255, 0.8);
+    --orange-dimmed: rgb(254, 174, 62);
+    --purple-dimmed: rgb(155, 23, 255);
+    
+}
+
+body {
+    text-align: center;
+    background-color: black;
+}
+
+.button {
+    width: 50px;
+    height: 50px;
+    border-radius: 10%;
+    border: none;
+    box-shadow:
+      inset 0 0 50px var(--white),      /* inner white */
+      inset 20px 0 80px var(--orange),   /* inner left orange short */
+      inset -20px 0 80px var(--purple),  /* inner right purple short */
+      inset 20px 0 300px var(--orange),  /* inner left orange broad */
+      inset -20px 0 300px var(--purple), /* inner right purple broad */
+      0 0 50px var(--white),            /* outer white */
+      -10px 0 80px var(--orange),        /* outer left orange */
+      10px 0 80px var(--purple);         /* outer right purple */
+}
+.button:hover {
+    box-shadow:
+      inset 0 0 50px var(--white_dimmed),      /* inner white--white_dimmed */
+      inset 20px 0 80px var(--orange-dimmed),   /* inner left orange--orange-dimmed short */
+      inset -20px 0 80px var(--purple-dimmed),  /* inner right purple-dimmed short */
+      inset 20px 0 300px var(--orange-dimmed),  /* inner left orange--orange-dimmed broad */
+      inset -20px 0 300px var(--purple-dimmed), /* inner right purple-dimmed broad */
+      0 0 50px var(--white_dimmed),            /* outer white--white_dimmed */
+      -10px 0 80px var(--orange-dimmed),        /* outer left orange--orange-dimmed */
+      10px 0 80px var(--purple-dimmed);         /* outer right purple-dimmed */ 
+    cursor: grab;
+}
+cursor {
+    color: white;
+    
+}
+
+nav button {
+    text-align: center;
+    color: var(--white);
+    border-radius: 10%;
+    border: none;
+    box-shadow:
+      inset 0 0 50px var(--white),      /* inner white */
+      inset 20px 0 80px var(--orange),   /* inner left orange short */
+      inset -20px 0 80px var(--purple),  /* inner right purple short */
+      inset 20px 0 300px var(--orange),  /* inner left orange broad */
+      inset -20px 0 300px var(--purple), /* inner right purple broad */
+      0 0 50px var(--white),            /* outer white */
+      -10px 0 80px var(--orange),        /* outer left orange */
+      10px 0 80px var(--purple);         /* outer right purple */
+    
+}
+nav button a {
+    text-decoration: none;
+}
+
+nav button:nth-child(even){
+    background-color: var(--orange)
+}
+
+nav button:hover:nth-child(even) {
+    background-color: var(--purple);
+    color: var(--orange)
+}
+
+nav button:nth-child(odd){
+    background-color: var(--purple)
+}
+nav button:hover:nth-child(odd){
+    background-color: var(--orange);
+    color:var(--purple)
+}
