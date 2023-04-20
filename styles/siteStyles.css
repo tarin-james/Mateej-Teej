@@ -1,83 +1,179 @@
-:root{
-    --white:rgb(255, 255, 255);
-    --orange:rgb(251, 174, 67);
-    --purple:rgb(169, 64, 248);
-    --white_dimmed: rgba(255, 255, 255, 0.8);
-    --orange-dimmed: rgb(254, 174, 62);
-    --purple-dimmed: rgb(155, 23, 255);
-    
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+:root {
+  --white: rgb(255, 255, 255);
+  --orange: rgb(251, 174, 67);
+  --purple: rgb(169, 64, 248);
+  --white_dimmed: rgba(255, 255, 255, 0.8);
+  --orange-dimmed: rgb(254, 174, 62);
+  --purple-dimmed: rgb(155, 23, 255);
 }
 
 body {
-    text-align: center;
-    background-color: black;
+  text-align: center;
+  background-color: black;
+  margin: 20px;
+  padding: 0px;
+  overflow: hidden;
+  cursor: none;
+  font-family: Nunito, cursive;
 }
 
-.button {
-    width: 50px;
-    height: 50px;
-    border-radius: 10%;
-    border: none;
-    box-shadow:
-      inset 0 0 50px var(--white),      /* inner white */
-      inset 20px 0 80px var(--orange),   /* inner left orange short */
-      inset -20px 0 80px var(--purple),  /* inner right purple short */
-      inset 20px 0 300px var(--orange),  /* inner left orange broad */
-      inset -20px 0 300px var(--purple), /* inner right purple broad */
-      0 0 50px var(--white),            /* outer white */
-      -10px 0 80px var(--orange),        /* outer left orange */
-      10px 0 80px var(--purple);         /* outer right purple */
-}
-.button:hover {
-    box-shadow:
-      inset 0 0 50px var(--white_dimmed),      /* inner white--white_dimmed */
-      inset 20px 0 80px var(--orange-dimmed),   /* inner left orange--orange-dimmed short */
-      inset -20px 0 80px var(--purple-dimmed),  /* inner right purple-dimmed short */
-      inset 20px 0 300px var(--orange-dimmed),  /* inner left orange--orange-dimmed broad */
-      inset -20px 0 300px var(--purple-dimmed), /* inner right purple-dimmed broad */
-      0 0 50px var(--white_dimmed),            /* outer white--white_dimmed */
-      -10px 0 80px var(--orange-dimmed),        /* outer left orange--orange-dimmed */
-      10px 0 80px var(--purple-dimmed);         /* outer right purple-dimmed */ 
-    cursor: grab;
-}
-cursor {
-    color: white;
-    
+#circle {
+  position: absolute;
+  z-index: -1000;
+  transform: translate(-50%, -50%);
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  border: 2px solid white;
+  transition: width 0.3s ease, height 0.1s ease;
+  background-color: white;
 }
 
-nav button {
-    text-align: center;
-    color: var(--white);
-    border-radius: 10%;
-    border: none;
-    box-shadow:
-      inset 0 0 50px var(--white),      /* inner white */
-      inset 20px 0 80px var(--orange),   /* inner left orange short */
-      inset -20px 0 80px var(--purple),  /* inner right purple short */
-      inset 20px 0 300px var(--orange),  /* inner left orange broad */
-      inset -20px 0 300px var(--purple), /* inner right purple broad */
-      0 0 50px var(--white),            /* outer white */
-      -10px 0 80px var(--orange),        /* outer left orange */
-      10px 0 80px var(--purple);         /* outer right purple */
-    
-}
-nav button a {
-    text-decoration: none;
+nav a {
+  color: var(--white);
+  margin: 15px;
+  text-decoration: none;
+  font-size: x-large;
+  transition: all 0.5s;
+  border-radius: 10px;
+  padding: 10px;
+  mix-blend-mode: difference;
 }
 
-nav button:nth-child(even){
-    background-color: var(--orange)
+nav a:hover {
+  cursor: none;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  grid-column: 1;
 }
 
-nav button:hover:nth-child(even) {
-    background-color: var(--purple);
-    color: var(--orange)
+nav {
+  display: grid;
+  grid-template-columns: 9fr 3fr;
 }
 
-nav button:nth-child(odd){
-    background-color: var(--purple)
+.glow {
+  transition: 1s all ease;
 }
-nav button:hover:nth-child(odd){
-    background-color: var(--orange);
-    color:var(--purple)
+
+.glow-purple {
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--purple),
+    0 0 40px var(--purple), 0 0 50px var(--purple), 0 0 60px var(--purple),
+    0 0 70px var(--purple);
+}
+
+.glow-purple:hover {
+  -webkit-animation: glow-variant 1s ease-in-out infinite alternate;
+  -moz-animation: glow-variant 1s ease-in-out infinite alternate;
+  animation: glow-variant 1s ease-in-out infinite alternate;
+}
+
+.glow-orange:hover {
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+.glow-orange {
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--orange),
+    0 0 40px var(--orange), 0 0 50px var(--orange), 0 0 60px var(--orange),
+    0 0 70px var(--orange);
+}
+
+.nav-icon {
+  margin-top: 30px;
+  position: relative;
+  grid-column: 2;
+  display: none;
+  width: 60px;
+}
+
+.bar {
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background-color: white;
+  display: inline-block;
+  transition: 0.5s all ease;
+}
+
+.bar:nth-child(1) {
+  transform: rotate(90deg) translateY(10px);
+}
+.bar:nth-child(2) {
+  transform: rotate(-90deg) translateY(10px);
+}
+.bar:nth-child(3) {
+  transform: translateY(10px);
+}
+.bar:nth-child(4) {
+  transform: translateY(-10px);
+}
+
+.dot {
+  position: absolute;
+  background-color: white;
+  border-radius: 100px;
+  width: 20px;
+  height: 20px;
+  transform: translateX(34.5px) translateY(-9.5px);
+}
+
+.nav-icon:hover > .bar,
+.nav-icon:hover > .dot {
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--purple),
+    0 0 40px var(--purple), 0 0 50px var(--purple), 0 0 60px var(--purple),
+    0 0 70px var(--purple);
+}
+
+.nav-icon:hover > .bar:nth-child(1) {
+  transform: translateY(0px) translateX(-25px);
+}
+.nav-icon:hover > .bar:nth-child(2) {
+  transform: translateY(0px) translateX(25px);
+}
+.nav-icon:hover > .bar:nth-child(3) {
+  transform: rotate(90deg) translateX(25px);
+}
+.nav-icon:hover > .bar:nth-child(4) {
+  transform: rotate(90deg) translateX(-25px);
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--purple),
+      0 0 40px var(--purple), 0 0 50px var(--purple), 0 0 60px var(--purple),
+      0 0 70px var(--purple);
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px var(--orange), 0 0 40px var(--orange),
+      0 0 50px var(--orange), 0 0 60px var(--orange), 0 0 70px var(--orange),
+      0 0 80px var(--orange);
+  }
+}
+
+@keyframes glow-variant {
+  from {
+    text-shadow: 0 0 20px #fff, 0 0 30px var(--orange), 0 0 40px var(--orange),
+      0 0 50px var(--orange), 0 0 60px var(--orange), 0 0 70px var(--orange),
+      0 0 80px var(--orange);
+  }
+  to {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--purple),
+      0 0 40px var(--purple), 0 0 50px var(--purple), 0 0 60px var(--purple),
+      0 0 70px var(--purple);
+  }
+}
+
+@media screen and (max-width: 850px) {
+  nav ul {
+    display: none;
+  }
+  .nav-icon {
+    display: inline-block;
+  }
 }
